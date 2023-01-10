@@ -32,29 +32,30 @@ namespace Puppies.API.Data
         new Puppy
         {
           Id = "2f81a686-7531-11e8-86e5-f0d5bf731f68",
-          Breed = "2001",
-          BirthDate = "2009",
-          Name = "George W. Bush"
+          Breed = "Bulldog",
+          BirthDate = "2021",
+          Name = "Bully"
         },
         new Puppy
         {
           Id = "f9ce325d-ed8c-4fad-899b-fc997ed199ad",
-          Breed = "2009",
-          BirthDate = "2017",
-          Name = "Barack Obama"
+          Breed = "Husky",
+          BirthDate = "2022",
+          Name = "Hush"
         },
         new Puppy
         {
           Id = "b769d25a-86dc-4ec6-a022-dfa4112354f9",
-          Breed = "2017",
+          Breed = "German S",
           BirthDate = "2021",
-          Name = "Donald Trump"
+          Name = "Shef"
         },
         new Puppy
         {
           Id = "822dcf18-54eb-4394-8884-1c73addf25c7",
-          Breed = "2021",
-          Name = "Joe Biden"
+          Breed = "Dalmation",
+          BirthDate = "2021",
+          Name = "Dell"
         }
       );
     }

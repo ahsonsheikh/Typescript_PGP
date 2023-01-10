@@ -9,7 +9,7 @@ namespace Puppies.API.Controllers
   public class Puppy
   { 
     [Key]
-    // [Required]
+    [Required]
     public string? Id { get; set; }
     public string? Name { get; set; }
     public string? Breed { get; set; }
@@ -18,7 +18,7 @@ namespace Puppies.API.Controllers
 
   public class AddPuppyRequest
   {
-    // [Required]
+    [Required]
     public string? Name { get; set; }
     // [Required]
     public string? Breed { get; set; }
@@ -27,7 +27,7 @@ namespace Puppies.API.Controllers
 
   public class UpdatePuppyRequest
   {
-    // [Required]
+    [Required]
     public string? Name { get; set; }
     // [Required]
     public string? Breed { get; set; }
@@ -36,49 +36,51 @@ namespace Puppies.API.Controllers
 
   
   [ApiController]
-  [Route("api/puppies")]
+  [Route("api/[controller]")]
   public class PuppiesController : ControllerBase
   {
     private IPuppyRepository _repo;
     
     public PuppiesController(IPuppyRepository repo) => _repo = repo;
    
+    // - GET: `api/puppies`. This should return a list of all puppies in JSON-format.
     [HttpGet]
     public IActionResult GetAllPuppies() 
     {
       return Ok(_repo.GetAll());
     }
 
+    //- GET: `api/puppies/:id`. This should return one puppy in JSON-format.  
     [HttpGet("{id}")]
     public IActionResult GetOnePuppy(string id)
     {
-      if (_repo.GetOne(id) == null)
-        return NotFound();
-      
-      return Ok(_repo.GetOne(id));
+      var getOne = _repo.GetOne(id);
+      return (getOne == null) ? NotFound() : Ok(getOne);
     }
-
+    
+    //- POST: `api/puppies`. This should create and return the newly added puppy.
     [HttpPost]
-    public IActionResult AddNewPuppy(string name, string from, string to, AddPuppyRequest httpPostRequest)
+    public IActionResult AddNewPuppy(string name, string breed, string birthDate, AddPuppyRequest httpPostRequest)
     { 
-      if (httpPostRequest.Breed == null) 
-        return NotFound("The Breed field is required");
+      // if (httpPostRequest.Breed == null) 
+      //   return NotFound("The Breed field is required");
 
-      if (httpPostRequest.Name == null)
-        return NotFound($"The Name field is required");
+      // if (httpPostRequest.Name == null)
+      //   return NotFound($"The Name field is required");
 
       var puppy = _repo.Create(httpPostRequest.Name, httpPostRequest.Breed, httpPostRequest.BirthDate);  
       return  Created($"http://localhost/api/puppies/{puppy.Id}", puppy);
     }
     
+    //- PUT: `api/puppies/:id`. This should put one puppy down (jk, just update the specific puppy).
     [HttpPut("{id}")]
     public IActionResult UpdateOnePuppy(string id, UpdatePuppyRequest httpPutRequest)
     {
-      if (httpPutRequest.Name == null) 
-        return NotFound("The Name field is required");
+      // if (httpPutRequest.Name == null) 
+      //   return NotFound("The Name field is required");
 
-      if (httpPutRequest.Breed == null) 
-        return NotFound($"The Breed field is required");
+      // if (httpPutRequest.Breed == null) 
+      //   return NotFound($"The Breed field is required");
       
       var puppyId = _repo.GetAll()
         .Where(x => x.Breed == httpPutRequest.Breed || x.Name == httpPutRequest.Name)
@@ -90,6 +92,7 @@ namespace Puppies.API.Controllers
       return Ok(_repo.Update(puppyId, httpPutRequest.Name, httpPutRequest.Breed, httpPutRequest.BirthDate));
     }
 
+    //- DELETE: `api/puppies/:id`. This should actually put one puppy down aka delete it.
     [HttpDelete("{id}")]
     public IActionResult DeleteOnePuppy(string id)
     {
@@ -101,12 +104,6 @@ namespace Puppies.API.Controllers
     }
   }
 }
-// A couple of suggestions;
-// - If you change the route for the class to `[Route("api/[controller]")]` 
-// it will pick up the controller name (easier refactoring down the line).
-
-// - When getting a specific president you can combine the if and assigning the president. 
-// That way you won't have to call the repository twice.
 
 // - Since you used data annotations on the request models you could've relied on the built 
 // in mechanisms for validating input models. Lines 64-68 & 77-81 are redundant.

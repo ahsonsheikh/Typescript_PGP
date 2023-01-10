@@ -9,6 +9,6 @@ namespace Puppies.API.Data
     {
     }
 
-    public DbSet<Puppy> Puppies { get; set; }
+    public DbSet<Puppy>? Puppies { get; set; }
   }
 }
