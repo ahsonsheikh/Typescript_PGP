@@ -10,14 +10,15 @@ namespace Puppies.API.Data
     private readonly AppDbContext _context;
 
     public PuppyRepository(AppDbContext context) => _context = context;
-    public Puppy Create(string name, string breed, string birthDate)
+    public Puppy Create(string name, string breed, int birthYear, string photo)
     {
       var puppy = new Puppy
       {
         Id = Guid.NewGuid().ToString(),
         Name = name,
         Breed = breed,
-        BirthDate = birthDate
+        BirthYear = birthYear,
+        Photo = photo
       };
 
       _context.Puppies.Add(puppy);
@@ -43,13 +44,14 @@ namespace Puppies.API.Data
         .SingleOrDefault();
 
     public bool SaveChanges() => (_context.SaveChanges() >= 0);
-    public Puppy Update(string id, string name, string breed, string birthDate)
+    public Puppy Update(string id, string name, string breed, int birthYear, string photo)
     {
       var puppy = GetOne(id);
 
       puppy.Name = name;
-      puppy.BirthDate = birthDate;
+      puppy.BirthYear = birthYear;
       puppy.Breed = breed;
+      puppy.Photo = photo;
 
       var updatedPuppy = _context.Puppies.Update(puppy);
       _context.SaveChanges();

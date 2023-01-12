@@ -9,29 +9,30 @@ namespace Puppies.API.Controllers
   public class Puppy
   { 
     [Key]
-    [Required]
     public string? Id { get; set; }
     public string? Name { get; set; }
     public string? Breed { get; set; }
-    public string? BirthDate { get; set; }
+    public int BirthYear { get; set; }
+    public string? Photo { get; set; }
+    
+    
   }
 
   public class AddPuppyRequest
   {
-    [Required]
     public string? Name { get; set; }
-    // [Required]
     public string? Breed { get; set; }
-    public string? BirthDate { get; set; }
+    public int BirthYear { get; set; }
+    public string? Photo { get; set; }
   }
 
   public class UpdatePuppyRequest
   {
-    [Required]
     public string? Name { get; set; }
-    // [Required]
     public string? Breed { get; set; }
-    public string? BirthDate { get; set; }
+    public int BirthYear { get; set; }
+    public string? Photo { get; set; }
+    
   }
 
   
@@ -60,36 +61,28 @@ namespace Puppies.API.Controllers
     
     //- POST: `api/puppies`. This should create and return the newly added puppy.
     [HttpPost]
-    public IActionResult AddNewPuppy(string name, string breed, string birthDate, AddPuppyRequest httpPostRequest)
+    public IActionResult AddNewPuppy(string name, string breed, int birthYear, string photo, AddPuppyRequest httpPostRequest)
     { 
-      // if (httpPostRequest.Breed == null) 
-      //   return NotFound("The Breed field is required");
-
-      // if (httpPostRequest.Name == null)
-      //   return NotFound($"The Name field is required");
-
-      var puppy = _repo.Create(httpPostRequest.Name, httpPostRequest.Breed, httpPostRequest.BirthDate);  
-      return  Created($"http://localhost/api/puppies/{puppy.Id}", puppy);
+    
+      var puppy = _repo.Create(httpPostRequest.Name, httpPostRequest.Breed, httpPostRequest.BirthYear, httpPostRequest.Photo);  
+      //return  Created($"https://localhost:7154/api/Puppies/{puppy.Id}", puppy);
+      return  CreatedAtAction (nameof(GetOnePuppy), new{id=puppy.Id}, puppy);
+      
     }
     
     //- PUT: `api/puppies/:id`. This should put one puppy down (jk, just update the specific puppy).
     [HttpPut("{id}")]
     public IActionResult UpdateOnePuppy(string id, UpdatePuppyRequest httpPutRequest)
     {
-      // if (httpPutRequest.Name == null) 
-      //   return NotFound("The Name field is required");
-
-      // if (httpPutRequest.Breed == null) 
-      //   return NotFound($"The Breed field is required");
       
       var puppyId = _repo.GetAll()
-        .Where(x => x.Breed == httpPutRequest.Breed || x.Name == httpPutRequest.Name)
+        .Where(x => x.Id == id)
         .Select(y => y.Id).SingleOrDefault();
-      
+
       if (puppyId == null) 
         return NotFound();
 
-      return Ok(_repo.Update(puppyId, httpPutRequest.Name, httpPutRequest.Breed, httpPutRequest.BirthDate));
+      return Ok(_repo.Update(puppyId, httpPutRequest.Name, httpPutRequest.Breed, httpPutRequest.BirthYear, httpPutRequest.Photo));
     }
 
     //- DELETE: `api/puppies/:id`. This should actually put one puppy down aka delete it.

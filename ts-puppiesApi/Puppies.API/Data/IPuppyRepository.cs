@@ -8,8 +8,8 @@ namespace Puppies.API.Data
     bool SaveChanges();
     Puppy GetOne(string id);
     IEnumerable<Puppy> GetAll();
-    Puppy Create(string name, string breed, string BirthDate);
+    Puppy Create(string name, string breed, int birthYear, string photo);
     void Delete(string id);
-    Puppy Update(string id, string name, string breed, string BirthDate);
+    Puppy Update(string id, string name, string breed, int birthYear, string photo);
   }
 }
