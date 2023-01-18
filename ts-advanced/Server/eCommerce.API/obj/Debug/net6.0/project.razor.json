@@ -1,5 +1,5 @@
 {
-  "FilePath": "/Users/muhammadahsan/salt/PGP/addons-ts-labs/Typescript_PGP/ts-puppiesApi/Puppies.API/Puppies.Api.csproj",
+  "FilePath": "/Users/muhammadahsan/salt/PGP/addons-ts-labs/Typescript_PGP/ts-advanced/Server/eCommerce.API/eCommerce.API.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "6.0",
@@ -16295,7 +16295,7 @@
     ],
     "CSharpLanguageVersion": 1000
   },
-  "RootNamespace": "Puppies.Api",
+  "RootNamespace": "eCommerce.API",
   "Documents": [],
   "SerializationFormat": "0.2"
 }
