@@ -4,9 +4,23 @@ import './App.css';
 import Header from './components/Header';
 import ListBlogs from './components/ListBlogs';
 import { Blog } from './models/blog.models';
-import dataa from './db.json';
+// import dataa from './db.json';
 
 function App() {
+  const [blogs, setBlogs] = useState<Blog[]>([]);
+  
+  useEffect(() => {
+   fetch('https://dummyjson.com/posts')
+    .then((response) => response.json())
+    .then((json) => setBlogs( json['posts']))  
+    .catch(error => console.log(error))
+
+   },[])
+
+  // useEffect(() => {
+  //   setBlogs(dataa);
+  // }, [])
+
   // const [blogs, setBlogs] = useState<Blog[]>(
   //   [
   //     {
@@ -28,25 +42,12 @@ function App() {
   //   ]
   //  )
 
-  const [blogs, setBlogs] = useState<Blog[]>([]);
   // const fetchData = () => {
   //   return axios.get('https://jsonplaceholder.typicode.com/posts')
   //   return axios.get('https://dummyjson.com/posts')
-  //          .then((response) => setBlogs(response.data));
+  //          .then((response) => setBlogs(response.data['posts']));
   // }
-
-  // useEffect(() => {
-  //  fetch('https://jsonplaceholder.typicode.com/posts')
-  //  //fetch('https://dummyjson.com/posts')
-  //   .then((response) => response.json())
-  //   .then((data) => setBlogs( data ))  
-  //   .catch(error => console.log(error))
-  //  },[])
-
-  useEffect(() => {
-    setBlogs(dataa);
-  }, [])
-
+  
   return (
     <>
       <Header />

@@ -8,7 +8,7 @@ interface IBlogsProps {
 };
 
 const Blogs: React.FunctionComponent<IBlogsProps> =({blog, handleDelete}) => {
-  //const renderTags = blog.tags.map((tag) => <div>{tag}</div>);
+  const renderTags = blog.tags.map((tag) => <div>{tag}</div>);
   return (
     <>
     <div className= 'blogs-container'>
@@ -16,7 +16,7 @@ const Blogs: React.FunctionComponent<IBlogsProps> =({blog, handleDelete}) => {
        <h3>Title: {blog.title}</h3>
        <p className="text-light"> {blog.body} </p>
        <h3>Tags:</h3>
-       {/* <p>{renderTags}</p> */}
+       <p>{renderTags}</p>
        <h3>Reactions: {blog.reactions}</h3>
        <h3>User Id: {blog.userId}</h3>
        <button className='blogs-btn' onClick={()=> handleDelete(blog.id)}>Delete</button>
