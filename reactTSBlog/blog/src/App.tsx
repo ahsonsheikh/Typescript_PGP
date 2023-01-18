@@ -35,17 +35,17 @@ function App() {
   //          .then((response) => setBlogs(response.data));
   // }
 
-  useEffect(() => {
-   fetch('https://jsonplaceholder.typicode.com/posts')
-   //fetch('https://dummyjson.com/posts')
-    .then((response) => response.json())
-    .then((data) => setBlogs( data ))  
-    .catch(error => console.log(error))
-   },[])
-
   // useEffect(() => {
-  //   setBlogs(dataa);
-  // }, [])
+  //  fetch('https://jsonplaceholder.typicode.com/posts')
+  //  //fetch('https://dummyjson.com/posts')
+  //   .then((response) => response.json())
+  //   .then((data) => setBlogs( data ))  
+  //   .catch(error => console.log(error))
+  //  },[])
+
+  useEffect(() => {
+    setBlogs(dataa);
+  }, [])
 
   return (
     <>
