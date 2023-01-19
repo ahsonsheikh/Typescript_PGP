@@ -4,7 +4,7 @@ import './Blogs.css';
 
 // {blogs.map(blog => <Blogs key={blog.id} blog={blog} handleDelete={handleDelete} />)}
 interface IBlogsProps {
-    blog: Blog,
+    blog: Blog
 };
 
 const Blogs: React.FunctionComponent<IBlogsProps> =({blog}) => {

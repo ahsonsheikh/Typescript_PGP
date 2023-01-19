@@ -43,8 +43,8 @@ const Menu: React.FC = (): JSX.Element => {
       <div className="announcement">
         <div>
           {selectTag
-            ? `You selected ${selectTag} as your favourite tag`
-            : "Select your favourite tag"}
+            ? `${selectTag}`
+            : "Select your favourite tag:"}&nbsp;&nbsp;
         </div>
       </div>
       <button
@@ -54,7 +54,8 @@ const Menu: React.FC = (): JSX.Element => {
           dismissHandler(e)
         }
       >
-        <div className="dd-placement">{selectTag ? "Select: " + selectTag : "Select ..."} </div>
+        {/* <div className="dd-placement">{selectTag ? "Select: " + selectTag : "Select ..."} </div> */}
+        <div className="dd-placement">{selectTag ? "Select... " : "Select..."} </div>
         {showDropDown && (
           <DropDown
             tags={tags()}
@@ -64,6 +65,7 @@ const Menu: React.FC = (): JSX.Element => {
           />
         )}
       </button>
+      
     </>
   );
 };

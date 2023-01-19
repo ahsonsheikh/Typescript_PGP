@@ -5,10 +5,13 @@ interface IHeaderProps {};
 
 const Header: React.FunctionComponent<IHeaderProps> =() => {
   return (
+    <>
     <div className='navbar'>
-      <h1>Blogs</h1> 
+      <h1>Tiny Blog&nbsp;&nbsp;</h1> 
       <Menu />
     </div>
+    
+    </>
   );
 }
  export default Header;

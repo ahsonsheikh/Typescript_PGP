@@ -24,8 +24,8 @@ function App(): JSX.Element {
     <>
       <Header />
       <div className="container">
-        <ListBlogs blogs={blogs} setBlogs={setBlogs} />
-        </div>
+      <ListBlogs blogs={blogs} setBlogs={setBlogs} />
+      </div>
     </>
   );
 }

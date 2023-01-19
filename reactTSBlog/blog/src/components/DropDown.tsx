@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Blog } from '../models/blog.models';
 
-interface IListBlogsProps {
+interface IDropDownProps {
     blogs: Blog[],
-    setBlogs: React.Dispatch<React.SetStateAction<Blog[]>>,
+    setBlogs: React.Dispatch<React.SetStateAction<Blog[]>>
 };
 type DropDownProps = {
     tags: string[];
