@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-// import axios from 'axios';
 import './App.css';
 import Header from './components/Header';
 import ListBlogs from './components/ListBlogs';
@@ -12,7 +11,8 @@ function App(): JSX.Element {
   // useEffect(() => {
   //  fetch('https://dummyjson.com/posts')
   //   .then((response) => response.json())
-  //   .then((json) => setBlogs( json['posts']))  
+  //   .then((json) => setBlogs( json['posts']))
+  // //.then((json) => setBlogs( () => [...json.posts]))    
   //   .catch(error => console.log(error))
   //  },[])
 
