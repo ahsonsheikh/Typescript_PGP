@@ -1,12 +1,13 @@
 import React from 'react';
 import './Header.css';
-
+import Menu from './Menu';
 interface IHeaderProps {};
 
 const Header: React.FunctionComponent<IHeaderProps> =() => {
   return (
     <div className='navbar'>
-      <h3>React Typescript BlogAPI</h3> 
+      <h1>Blogs</h1> 
+      <Menu />
     </div>
   );
 }

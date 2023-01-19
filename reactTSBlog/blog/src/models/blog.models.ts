@@ -12,7 +12,3 @@ export interface Blog {
     tags: string[],
     reactions: number
 }
-
-export interface Posts {
-    Blogs: Blog[]
-}
