@@ -1,14 +1,19 @@
 import React, { useState } from "react";
 import DropDown from "./DropDown";
 import './Menu.css';
+import { Blog } from '../models/blog.models';
+import data from '../db.json';
+import Blogs from './Blogs';
 
 const Menu: React.FC = () => {
   const [showDropDown, setShowDropDown] = useState<boolean>(false);
   const [selectTag, setSelectTag] = useState<string>("");
-  const tags = () => {
-    return ["AMERICAN", "FRENCH", "LOVE", "CRIME", "HISTORY"];
-  };
+  const [blogs, setBlogs] = useState<Blog[]>([]);
 
+  const tags = () => {
+    // return ["AMERICAN", "FRENCH", "LOVE", "CRIME", "HISTORY"];
+    return ["american", "french", "love", "crime", "history"];
+  };
 
   // Toggle the drop down menu
   const toggleDropDown = () => {
@@ -31,10 +36,14 @@ const Menu: React.FC = () => {
 
   const tagSelection = (tag: string): void => {
     setSelectTag(tag);
+    setBlogs(data.filter((dta) => dta.tags.includes(tag.toLowerCase())));
   };
 
   return (
     <>
+    <div>
+      {blogs.map(blog => <Blogs key={blog.id} blog={blog} />)}
+    </div>
       <div className="announcement">
         <div>
           {selectTag
@@ -49,6 +58,7 @@ const Menu: React.FC = () => {
           dismissHandler(e)
         }
       >
+
         {/* <div className="dd-placement">{selectTag ? "Select: " + selectTag : "Select ..."} </div> */}
         {/* <div className="dd-placement">{selectTag ? "Select... " : "Select..."} </div> */}
         <div className="dd-placement">Choose...</div>
@@ -61,6 +71,8 @@ const Menu: React.FC = () => {
           />
         )}
       </button>
+      
+
     </>
   );
 };

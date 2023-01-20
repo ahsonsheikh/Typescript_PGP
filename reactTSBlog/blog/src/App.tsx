@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import Header from './components/Header';
-import ListBlogs from './components/ListBlogs';
 import { Blog } from './models/blog.models';
 import data from './db.json';
+import Blogs from './components/Blogs';
 
 function App(): JSX.Element {
   const [blogs, setBlogs] = useState<Blog[]>([]);
-  
+
   // useEffect(() => {
   //  fetch('https://dummyjson.com/posts')
   //   .then((response) => response.json())
@@ -19,12 +19,16 @@ function App(): JSX.Element {
   useEffect(() => {
     setBlogs(data);
   }, [])
-    
+  // console.log(blogs);
   return (
     <>
       <Header />
       <div className="container">
-      <ListBlogs blogs={blogs} setBlogs={setBlogs} />
+        <h2 className="mt-4">Blogs</h2>
+        <div>
+          {blogs.map(blog => <Blogs key={blog.id} blog={blog} />)}
+        
+        </div>
       </div>
     </>
   );
