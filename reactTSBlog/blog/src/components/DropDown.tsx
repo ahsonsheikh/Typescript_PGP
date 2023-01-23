@@ -20,8 +20,6 @@ const DropDown: React.FC<IDropDownProps> = ({
 
     const onClickHandler = (tag: string): void => {
         tagSelection(tag);
-        console.log("DD");
-        console.log(tag);
     };
 
     useEffect(() => {

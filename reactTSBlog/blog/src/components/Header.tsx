@@ -1,30 +1,22 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import './Header.css';
 import Menu from './Menu';
+import { Blog } from '../models/blog.models';
 
-// interface IHeaderProps {
-//   tagggSelection: Function
-// };
+interface IHeaderProps {
+  setBlogs: React.Dispatch<React.SetStateAction<Blog[]>>
+};
 
+//  function Header(): JSX.Element {
+const Header: React.FunctionComponent<IHeaderProps> = ({
+  setBlogs,
+}: IHeaderProps): JSX.Element => {
 
-// const Header: React.FunctionComponent <IHeaderProps> = ({ 
-//   tagggSelection,
-// }: IHeaderProps): JSX.Element => {
-  function Header(): JSX.Element {
-    // const taggSelection = (tag: string): void => {
-    //   tagggSelection(tag);
-    //   console.log("Head");
-    //     console.log(tag);
-
-    // };
-    const handleTag = (tag: string) => {};
-
-return (
+  return (
     <>
       <div className='navbar'>
-        <h2>Tiny Blog&nbsp;&nbsp;</h2>
-        {/* <Menu taggSelection={taggSelection}/> */}
-        <Menu handleTag={handleTag}/>
+        <h1>Tiny Blog&nbsp;&nbsp;</h1>
+        <Menu setBlogs={setBlogs} />
       </div>
     </>
   );
