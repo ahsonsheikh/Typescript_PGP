@@ -69,7 +69,7 @@ const Menu: React.FC<IMenuProps> = ({
         )}
       </button>
       <div>
-        &nbsp;&nbsp;{selectTag ? selectTag : "ALL"}
+        &nbsp;&nbsp;{selectTag ? selectTag + " Blogs" : "ALL Blogs"}
       </div>
     </>
   );
