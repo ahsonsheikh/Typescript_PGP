@@ -3,10 +3,14 @@ import './App.css';
 import Header from './components/Header';
 import { Blog } from './models/blog.models';
 import data from './db.json';
-import Blogs from './components/Blogs';
+// import Blogs from './components/Blogs';
+import ListBlogs from './components/ListBlogs';
 
 function App(): JSX.Element {
+
   const [blogs, setBlogs] = useState<Blog[]>([]);
+  const [selectTag, setSelectTag] = useState ('');
+
 
   // useEffect(() => {
   //  fetch('https://dummyjson.com/posts')
@@ -19,15 +23,19 @@ function App(): JSX.Element {
   useEffect(() => {
     setBlogs(data);
   }, [])
-  // console.log(blogs);
+
+  
+
+  
   return (
     <>
+      {/* <Header /> */}
       <Header />
       <div className="container">
-        <h2 className="mt-4">Blogs</h2>
+        {/* <h2 className="mt-4">Blogs</h2> */}
         <div>
-          {blogs.map(blog => <Blogs key={blog.id} blog={blog} />)}
-        
+          {/* {blogs.map(blog => <Blogs key={blog.id} blog={blog}/>)} */}
+          <ListBlogs blogs={blogs} setBlogs={setBlogs} />
         </div>
       </div>
     </>

@@ -5,7 +5,18 @@ import { Blog } from '../models/blog.models';
 import data from '../db.json';
 import Blogs from './Blogs';
 
-const Menu: React.FC = () => {
+
+interface IMenuProps {
+  handleTag: Function
+};
+
+
+const Menu: React.FC <IMenuProps> = ({
+  handleTag,
+}: IMenuProps):JSX.Element => {
+
+// function Menu(): JSX.Element {
+
   const [showDropDown, setShowDropDown] = useState<boolean>(false);
   const [selectTag, setSelectTag] = useState<string>("");
   const [blogs, setBlogs] = useState<Blog[]>([]);
@@ -36,14 +47,25 @@ const Menu: React.FC = () => {
 
   const tagSelection = (tag: string): void => {
     setSelectTag(tag);
-    setBlogs(data.filter((dta) => dta.tags.includes(tag.toLowerCase())));
+    handleTag(tag);
+    console.log("Menu");
+    console.log(tag);
+    const dataa: Blog[] = data.filter((dta) => dta.tags.includes(tag.toLowerCase()));
+    setBlogs(dataa);
+    // console.log(blogs);
+    console.log(dataa);
+
+
   };
 
   return (
     <>
-    <div>
-      {blogs.map(blog => <Blogs key={blog.id} blog={blog} />)}
-    </div>
+
+      <div>
+
+        {/* {blogs.map(blog => <Blogs key={blog.id} blog={blog} handleTag={handleTag}/>)} */}
+
+      </div>
       <div className="announcement">
         <div>
           {selectTag
@@ -71,7 +93,7 @@ const Menu: React.FC = () => {
           />
         )}
       </button>
-      
+
 
     </>
   );
