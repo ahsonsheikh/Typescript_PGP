@@ -14,7 +14,12 @@ const Blogs: React.FunctionComponent<IBlogsProps> = ({ blog }) => {
       <div className='blogs-container'>
         <h3>{blog.title}</h3>
         <p className="text-light"> {blog.body} </p>
-        <h3>Tags:</h3> <h5>{renderTags.map((tag) => <div>{tag.toUpperCase()}</div>)}</h5>
+        {/* <h3>Tags:</h3><h5>{renderTags.map((tag) => <div>{tag.toUpperCase()}</div>)}</h5> */}
+        <h3>Tags:</h3>
+        <h5>{renderTags.map((renderTag, index) => (
+          <li key={index}>{renderTag}</li>
+        ))}
+        </h5>
       </div>
     </>
   );
