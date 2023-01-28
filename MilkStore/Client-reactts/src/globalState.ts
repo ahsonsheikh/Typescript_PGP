@@ -107,8 +107,8 @@ export function reducer(state: StateInterface, action: ActionType): StateInterfa
 
     case "ADD_INITIAL_ITEMS":
       (payload as ItemInterface[]).forEach((product: ItemInterface) => {
-        if(!state.names.includes(product.name)){
-          state.names.push(product.name)
+        if(!state.names.includes(product.type)){
+          state.names.push(product.type)
         }
       })
       state.items = payload as ItemInterface[];

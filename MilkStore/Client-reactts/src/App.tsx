@@ -35,39 +35,34 @@ function App(): JSX.Element {
 
   useEffect(() => {
     // const data =getData();
-    
-
     try {
       fetch('milk.json'
-      , {
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
+        , {
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          }
         }
-      }
-    )
-      .then(function (response) {
-        // console.log(response)
-        return response.json();
-      })
-      .then(function (myJson) {
-        console.log(myJson);
-      });
+      )
+        .then(function (response) {
+          return response.json();
+        })
+        // .then(function (myJson) {
+        //   console.log(myJson);
+        // })
+        .then(data => dispatch({ type: "ADD_INITIAL_ITEMS", payload: data }))
+    }
+    catch (err) {
+      dispatch({ type: "ERROR" });
     }
     //   fetch('milk.json')
-       
     //     .then(res => res.json())
     //     .then(data => dispatch({ type: "ADD_INITIAL_ITEMS", payload: data }))
     //     .then(json => console.log(json))
     // } catch (err) {
     //   dispatch({ type: "ERROR" })
     // }
-
-     catch (err) {
-      console.log("ERROR")
-    }
   }, [])
-
 
   return (
     <Ctx.Provider value={state}>
