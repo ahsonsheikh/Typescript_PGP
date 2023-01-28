@@ -29,11 +29,11 @@ export const Item: React.FC<ItemProps> = ({
         <img src={Milk} alt={name} />
       </div>
 
-      {/* <div className="Item__body">
+      <div className="Item__body">
         <h2 onClick={handleNavigate}>{name}</h2>
-        <span>${price}</span>
-        <span className="Item__category">{category}</span>
-      </div> */}
+        <span>${storage}</span>
+        <span className="Item__category">{type}</span>
+      </div>
 
       <div className="Item__footer">
         {/* <Rating content={rate} /> */}

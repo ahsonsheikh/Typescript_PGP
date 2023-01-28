@@ -10,10 +10,10 @@ export interface RoutesInterface{
   history: string;
 }
 
-interface RatingInterface{
-  rate: number;
-  count: number;
-}
+// interface RatingInterface{
+//   rate: number;
+//   count: number;
+// }
 
 export interface ItemInterface{
   id: string;

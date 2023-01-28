@@ -19,7 +19,7 @@ export const Menu: React.FC<PageProps> = ({ state, dispatch }): JSX.Element => {
     <Fragment>
       <section className="Menu">
         <article className="Menu__bar" onClick={handleClick}>
-          <h2 className="Menu__title">milk Cart</h2>
+          <h2 className="Menu__title">Milk Cart</h2>
 
           <div className="Menu__buttons">
             {(milkCart.length > 0) && (

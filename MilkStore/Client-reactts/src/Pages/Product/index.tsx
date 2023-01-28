@@ -1,18 +1,21 @@
 import { useParams } from "react-router-dom"
+import { useEffect } from "react"
 import { ButtonCTA } from "../../Components/ButtonCTA"
 import { Rating } from "../../Components/Rating"
-import { ItemInterface, PageProps } from "../../globalTypes"
+import { StateInterface, ItemInterface, PageProps } from "../../globalTypes"
 
 export const Product: React.FC<PageProps> = ({ state, dispatch }): JSX.Element => {
-  const { title } = useParams()
+  const { name } = useParams()
   const { items } = state
-  const item: ItemInterface = items.find(index => index.type.trim() === title?.trim()) as ItemInterface
+  const item: ItemInterface = items.find(index => index.type.trim() === name?.trim()) as ItemInterface
 
-  // useEffect(() => {
-  //   window.scrollTo(0, 0)
-  // }, [searching])
+  useEffect(() => {
+    window.scrollTo(0, 0)
+    // }, [searching])
+  }, [])
 
-  return(
+
+  return (
     <section className="Detail">
       <article className="Detail__thumbnail">
         <img src='../Assets/Images/milk.png' alt="" />

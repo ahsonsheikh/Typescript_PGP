@@ -102,7 +102,7 @@ export function reducer(state: StateInterface, action: ActionType): StateInterfa
       }
 
     case "FILTER":
-      state.filteredItems = payload === "All items" ? state.items : state.items.filter(item => item.name === payload)
+      state.filteredItems = payload === "All items" ? state.items : state.items.filter(item => item.type === payload)
       return{ ...state, filterAt: payload as string }
 
     case "ADD_INITIAL_ITEMS":
