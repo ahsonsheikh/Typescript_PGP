@@ -31,7 +31,8 @@ export const Item: React.FC<ItemProps> = ({
 
       <div className="Item__body">
         <h2 onClick={handleNavigate}>{name}</h2>
-        <span>${storage}</span>
+        <span>Available: {storage} Litres</span>
+        <span>Price: $10/Litre</span>
         <span className="Item__category">{type}</span>
       </div>
 

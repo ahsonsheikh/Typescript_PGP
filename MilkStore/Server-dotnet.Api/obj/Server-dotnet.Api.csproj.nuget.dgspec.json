@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/muhammadahsan/salt/PGP/addons-ts-labs/MilkStore/Server-dotnet.Api/Server-dotnet.Api.csproj": {}
+    "/Users/muhammadahsan/salt/PGP/addons-ts-labs/Typescript_PGP/MilkStore/Server-dotnet.Api/Server-dotnet.Api.csproj": {}
   },
   "projects": {
-    "/Users/muhammadahsan/salt/PGP/addons-ts-labs/MilkStore/Server-dotnet.Api/Server-dotnet.Api.csproj": {
+    "/Users/muhammadahsan/salt/PGP/addons-ts-labs/Typescript_PGP/MilkStore/Server-dotnet.Api/Server-dotnet.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/muhammadahsan/salt/PGP/addons-ts-labs/MilkStore/Server-dotnet.Api/Server-dotnet.Api.csproj",
+        "projectUniqueName": "/Users/muhammadahsan/salt/PGP/addons-ts-labs/Typescript_PGP/MilkStore/Server-dotnet.Api/Server-dotnet.Api.csproj",
         "projectName": "Server-dotnet.Api",
-        "projectPath": "/Users/muhammadahsan/salt/PGP/addons-ts-labs/MilkStore/Server-dotnet.Api/Server-dotnet.Api.csproj",
+        "projectPath": "/Users/muhammadahsan/salt/PGP/addons-ts-labs/Typescript_PGP/MilkStore/Server-dotnet.Api/Server-dotnet.Api.csproj",
         "packagesPath": "/Users/muhammadahsan/.nuget/packages/",
-        "outputPath": "/Users/muhammadahsan/salt/PGP/addons-ts-labs/MilkStore/Server-dotnet.Api/obj/",
+        "outputPath": "/Users/muhammadahsan/salt/PGP/addons-ts-labs/Typescript_PGP/MilkStore/Server-dotnet.Api/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/muhammadahsan/.nuget/NuGet/NuGet.Config"

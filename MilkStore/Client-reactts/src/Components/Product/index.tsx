@@ -25,7 +25,7 @@ export const Product: React.FC<ProductProps> = ({
       <div className="Product__content">
         <div>
           <h2>{name}</h2>
-          {/* <span>${price}</span> */}
+          <span>{storage} Liters</span>
           <select defaultValue={storage} onChange={(e) => handleChange(e)}>
             <option value="1">1</option>
             <option value="2">2</option>

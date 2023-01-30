@@ -77,7 +77,7 @@ export function reducer(state: StateInterface, action: ActionType): StateInterfa
       index = getIndex()
       if(index >= 0){
         newItem = state.items[index]
-        newItem.storage = 1
+        // newItem.storage = 1
         newmilkCart = [
           ...state.milkCart,
           newItem

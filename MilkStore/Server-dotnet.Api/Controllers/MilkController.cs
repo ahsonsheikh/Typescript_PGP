@@ -11,16 +11,16 @@ namespace Server_dotnet.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class MilkModelController : ControllerBase
+    public class MilkController : ControllerBase
     {
         private readonly dataContext _context;
 
-        public MilkModelController(dataContext context)
+        public MilkController(dataContext context)
         {
             _context = context;
         }
 
-        // GET: api/MilkModel
+        // GET: api/Milk
         [HttpGet]
         public async Task<ActionResult<IEnumerable<MilkModel>>> GetMilkModel()
         {
@@ -31,7 +31,7 @@ namespace Server_dotnet.Api.Controllers
             return await _context.MilkModel.ToListAsync();
         }
 
-        // GET: api/MilkModel/5
+        // GET: api/Milk/5
         [HttpGet("{id}")]
         public async Task<ActionResult<MilkModel>> GetMilkModel(string id)
         {
@@ -49,7 +49,7 @@ namespace Server_dotnet.Api.Controllers
             return milkModel;
         }
 
-        // PUT: api/MilkModel/5
+        // PUT: api/Milk/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutMilkModel(string id, MilkModel milkModel)
@@ -80,7 +80,7 @@ namespace Server_dotnet.Api.Controllers
             return NoContent();
         }
 
-        // POST: api/MilkModel
+        // POST: api/Milk
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<MilkModel>> PostMilkModel(MilkModel milkModel)
@@ -109,7 +109,7 @@ namespace Server_dotnet.Api.Controllers
             return CreatedAtAction("GetMilkModel", new { id = milkModel.Id }, milkModel);
         }
 
-        // DELETE: api/MilkModel/5
+        // DELETE: api/Milk/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteMilkModel(string id)
         {
