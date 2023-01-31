@@ -12,5 +12,5 @@ using Server_dotnet.Api.Models;
         {
         }
 
-        public DbSet<Server_dotnet.Api.Models.MilkModel> MilkModel { get; set; } = default!;
+        public DbSet<Server_dotnet.Api.Models.Milk> Milk { get; set; } = default!;
     }

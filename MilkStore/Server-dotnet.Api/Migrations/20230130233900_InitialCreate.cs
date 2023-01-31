@@ -9,24 +9,24 @@ namespace Server_dotnet.Api.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "MilkModel",
+                name: "Milk",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Type = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Storage = table.Column<int>(type: "int", nullable: false)
+                    id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    type = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    storage = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MilkModel", x => x.Id);
+                    table.PrimaryKey("PK_Milk", x => x.id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "MilkModel");
+                name: "Milk");
         }
     }
 }

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Server_dotnet.Api.Migrations
 {
     [DbContext(typeof(dataContext))]
-    [Migration("20230130032528_InitialCreate")]
+    [Migration("20230130233900_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -22,23 +22,23 @@ namespace Server_dotnet.Api.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("Server_dotnet.Api.Models.MilkModel", b =>
+            modelBuilder.Entity("Server_dotnet.Api.Models.Milk", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<string>("id")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Storage")
+                    b.Property<int>("storage")
                         .HasColumnType("int");
 
-                    b.Property<string>("Type")
+                    b.Property<string>("type")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("id");
 
-                    b.ToTable("MilkModel");
+                    b.ToTable("Milk");
                 });
 #pragma warning restore 612, 618
         }

@@ -22,44 +22,44 @@ namespace Server_dotnet.Api.Controllers
 
         // GET: api/Milk
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<MilkModel>>> GetMilkModel()
+        public async Task<ActionResult<IEnumerable<Milk>>> GetMilk()
         {
-          if (_context.MilkModel == null)
+          if (_context.Milk == null)
           {
               return NotFound();
           }
-            return await _context.MilkModel.ToListAsync();
+            return await _context.Milk.ToListAsync();
         }
 
         // GET: api/Milk/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<MilkModel>> GetMilkModel(string id)
+        public async Task<ActionResult<Milk>> GetMilk(string id)
         {
-          if (_context.MilkModel == null)
+          if (_context.Milk == null)
           {
               return NotFound();
           }
-            var milkModel = await _context.MilkModel.FindAsync(id);
+            var milk = await _context.Milk.FindAsync(id);
 
-            if (milkModel == null)
+            if (milk == null)
             {
                 return NotFound();
             }
 
-            return milkModel;
+            return milk;
         }
 
         // PUT: api/Milk/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutMilkModel(string id, MilkModel milkModel)
+        public async Task<IActionResult> PutMilk(string id, Milk milk)
         {
-            if (id != milkModel.Id)
+            if (id != milk.id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(milkModel).State = EntityState.Modified;
+            _context.Entry(milk).State = EntityState.Modified;
 
             try
             {
@@ -67,7 +67,7 @@ namespace Server_dotnet.Api.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!MilkModelExists(id))
+                if (!MilkExists(id))
                 {
                     return NotFound();
                 }
@@ -83,20 +83,20 @@ namespace Server_dotnet.Api.Controllers
         // POST: api/Milk
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<MilkModel>> PostMilkModel(MilkModel milkModel)
+        public async Task<ActionResult<Milk>> PostMilk(Milk milk)
         {
-          if (_context.MilkModel == null)
+          if (_context.Milk == null)
           {
-              return Problem("Entity set 'dataContext.MilkModel'  is null.");
+              return Problem("Entity set 'dataContext.Milk'  is null.");
           }
-            _context.MilkModel.Add(milkModel);
+            _context.Milk.Add(milk);
             try
             {
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateException)
             {
-                if (MilkModelExists(milkModel.Id))
+                if (MilkExists(milk.id))
                 {
                     return Conflict();
                 }
@@ -106,32 +106,32 @@ namespace Server_dotnet.Api.Controllers
                 }
             }
 
-            return CreatedAtAction("GetMilkModel", new { id = milkModel.Id }, milkModel);
+            return CreatedAtAction("GetMilk", new { id = milk.id }, milk);
         }
 
         // DELETE: api/Milk/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteMilkModel(string id)
+        public async Task<IActionResult> DeleteMilk(string id)
         {
-            if (_context.MilkModel == null)
+            if (_context.Milk == null)
             {
                 return NotFound();
             }
-            var milkModel = await _context.MilkModel.FindAsync(id);
-            if (milkModel == null)
+            var milk = await _context.Milk.FindAsync(id);
+            if (milk == null)
             {
                 return NotFound();
             }
 
-            _context.MilkModel.Remove(milkModel);
+            _context.Milk.Remove(milk);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool MilkModelExists(string id)
+        private bool MilkExists(string id)
         {
-            return (_context.MilkModel?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Milk?.Any(e => e.id == id)).GetValueOrDefault();
         }
     }
 }

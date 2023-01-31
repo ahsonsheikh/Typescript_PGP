@@ -1,5 +1,5 @@
 {
-  "FilePath": "/Users/muhammadahsan/salt/PGP/addons-ts-labs/Typescript_PGP/ts-advanced/Server/eCommerce.API/eCommerce.API.csproj",
+  "FilePath": "/Users/muhammadahsan/salt/PGP/addons-ts-labs/Typescript_PGP/MilkStore/Server-dotnet.Api/Server-dotnet.Api.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "6.0",
@@ -16295,7 +16295,7 @@
     ],
     "CSharpLanguageVersion": 1000
   },
-  "RootNamespace": "eCommerce.API",
+  "RootNamespace": "Server_dotnet.Api",
   "Documents": [],
   "SerializationFormat": "0.2"
 }
