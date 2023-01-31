@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using Server_dotnet.Api.Models;
+// using Microsoft.Extensions.DependencyInjection;
+// using Server_dotnet.Api.Models;
 using Server_dotnet.Api.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,7 +21,6 @@ var services = scope.ServiceProvider;
 SeedData.Initialize(services);
 }
 
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -30,6 +29,13 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors(builder =>
+            {
+                builder.AllowAnyMethod()
+                       .AllowAnyHeader()
+                       .AllowAnyOrigin();
+            });
 
 app.UseAuthorization();
 

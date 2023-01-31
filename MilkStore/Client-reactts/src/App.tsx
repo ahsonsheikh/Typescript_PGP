@@ -15,55 +15,50 @@ import { StateInterface } from './globalTypes';
 function App(): JSX.Element {
   const [state, dispatch] = useReducer(reducer, initialState())
 
-  // const getData = () => {
-  //   fetch('milk.json'
-  //     , {
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //         'Accept': 'application/json'
+  // useEffect(() => {
+  //   // const data =getData();
+  //   try {
+  //     fetch('milk.json'
+  //       , {
+  //         headers: {
+  //           'Content-Type': 'application/json',
+  //           'Accept': 'application/json'
+  //         }
   //       }
-  //     }
-  //   )
-  //     .then(function (response) {
-  //       // console.log(response)
-  //       return response.json();
-  //     })
-  //     .then(function (myJson) {
-  //       console.log(myJson);
-  //     });
-  // }
+  //     )
+  //       .then(function (response) {
+  //         return response.json();
+  //       })
+  //       .then(data => dispatch({ type: "ADD_INITIAL_ITEMS", payload: data }))
+  //   }
+  //   catch (err) {
+  //     dispatch({ type: "ERROR" });
+  //   }
+  // }, [])
+
 
   useEffect(() => {
-    // const data =getData();
-    try {
-      fetch('milk.json'
-        , {
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          }
-        }
-      )
-        .then(function (response) {
-          return response.json();
-        })
-        // .then(function (myJson) {
-        //   console.log(myJson);
-        // })
-        .then(data => dispatch({ type: "ADD_INITIAL_ITEMS", payload: data }))
-    }
-    catch (err) {
-      dispatch({ type: "ERROR" });
-    }
-    //   fetch('milk.json')
-    //     .then(res => res.json())
-    //     .then(data => dispatch({ type: "ADD_INITIAL_ITEMS", payload: data }))
-    //     .then(json => console.log(json))
-    // } catch (err) {
-    //   dispatch({ type: "ERROR" })
-    // }
+ //   try {
+  fetch('https://localhost:7256/api/milk')
+  .then(res => res.json())
+  .then(json => console.log(json))
+  //.then(data => dispatch({ type: "ADD_INITIAL_ITEMS", payload: data }))
+  //   }
+  //   catch (err) {
+  //     dispatch({ type: "ERROR" });
+  //   }
+  //   //   fetch('https://localhost:7256/api/milk')
+  //   //     .then(res => res.json())
+  //   //     .then(data => dispatch({ type: "ADD_INITIAL_ITEMS", payload: data }))
+  //   //     .then(json => console.log(json))
+  //   // } catch (err) {
+  //   //   dispatch({ type: "ERROR" })
+  //   // }
   }, [])
 
+
+
+  
   return (
     <Ctx.Provider value={state}>
       <section className="App">

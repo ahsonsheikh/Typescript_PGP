@@ -1,11 +1,37 @@
 {
   "Version": 1,
-  "Hash": "5Exs8XerTqt8PEtJOzPKv7r5qUhjzk8LDL044TFgh7Y=",
+  "Hash": "JW1UgFMF6fP/M9Zhhn6VJ7n+vXxzAK8zZmUAqCzuJDI=",
   "Source": "Server-dotnet.Api",
   "BasePath": "_content/Server-dotnet.Api",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "Server-dotnet.Api/wwwroot",
+      "Source": "Server-dotnet.Api",
+      "ContentRoot": "/Users/muhammadahsan/salt/PGP/addons-ts-labs/Typescript_PGP/MilkStore/Server-dotnet.Api/wwwroot/",
+      "BasePath": "_content/Server-dotnet.Api",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "/Users/muhammadahsan/salt/PGP/addons-ts-labs/Typescript_PGP/MilkStore/Server-dotnet.Api/wwwroot/files/milk.json",
+      "SourceId": "Server-dotnet.Api",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/muhammadahsan/salt/PGP/addons-ts-labs/Typescript_PGP/MilkStore/Server-dotnet.Api/wwwroot/",
+      "BasePath": "_content/Server-dotnet.Api",
+      "RelativePath": "files/milk.json",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/files/milk.json"
+    }
+  ]
 }
