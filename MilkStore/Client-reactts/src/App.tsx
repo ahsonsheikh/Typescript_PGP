@@ -15,20 +15,32 @@ import { StateInterface } from './globalTypes';
 function App(): JSX.Element {
   const [state, dispatch] = useReducer(reducer, initialState())
 
+  // Operation with local json data
+  useEffect(() => {
+    try {
+      fetch('milk.json'
+        // , {
+        //   headers: {
+        //     'Content-Type': 'application/json',
+        //     'Accept': 'application/json'
+        //   }
+        // }
+      )
+        .then(function (response) {
+          return response.json();
+        })
+        .then(data => dispatch({ type: "ADD_INITIAL_ITEMS", payload: data }))
+    }
+    catch (err) {
+      dispatch({ type: "ERROR" });
+    }
+  }, [])
+
+  // Operation with external API
   // useEffect(() => {
-  //   // const data =getData();
   //   try {
-  //     fetch('milk.json'
-  //       , {
-  //         headers: {
-  //           'Content-Type': 'application/json',
-  //           'Accept': 'application/json'
-  //         }
-  //       }
-  //     )
-  //       .then(function (response) {
-  //         return response.json();
-  //       })
+  //     fetch('https://localhost:7256/api/milk')
+  //       .then(res => res.json())
   //       .then(data => dispatch({ type: "ADD_INITIAL_ITEMS", payload: data }))
   //   }
   //   catch (err) {
@@ -36,29 +48,6 @@ function App(): JSX.Element {
   //   }
   // }, [])
 
-
-  useEffect(() => {
- //   try {
-  fetch('https://localhost:7256/api/milk')
-  .then(res => res.json())
-  .then(json => console.log(json))
-  //.then(data => dispatch({ type: "ADD_INITIAL_ITEMS", payload: data }))
-  //   }
-  //   catch (err) {
-  //     dispatch({ type: "ERROR" });
-  //   }
-  //   //   fetch('https://localhost:7256/api/milk')
-  //   //     .then(res => res.json())
-  //   //     .then(data => dispatch({ type: "ADD_INITIAL_ITEMS", payload: data }))
-  //   //     .then(json => console.log(json))
-  //   // } catch (err) {
-  //   //   dispatch({ type: "ERROR" })
-  //   // }
-  }, [])
-
-
-
-  
   return (
     <Ctx.Provider value={state}>
       <section className="App">
