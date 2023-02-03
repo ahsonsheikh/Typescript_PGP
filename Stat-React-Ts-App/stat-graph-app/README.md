@@ -44,3 +44,11 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+
+
+npx create-react-app stat-graph-app --template=typescript  
+npm i -save @syncfusion/ej2 @syncfusion/ej2-base @syncfusion/ej2-react-layouts @syncfusion/ej2-react-charts
+
+Register syncfusion trail license key in index.tsx

@@ -19,7 +19,7 @@ export const Cart: React.FC<PageProps> = ({ state, dispatch }): JSX.Element => {
 
       milkCart.forEach(product => {
         // subtotal += product.price * (product.storage as number)
-        //Same price of 10 for every item the time being
+        //Same price of 10 for every item for the time being
         subtotal += 10 * (product.storage as number)
         taxes += subtotal * 0.25;
         total += subtotal + taxes;

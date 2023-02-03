@@ -1,8 +1,12 @@
 {
-  "name": "stat-app",
+  "name": "stat-graph-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@syncfusion/ej2": "^20.4.48",
+    "@syncfusion/ej2-base": "^20.4.48",
+    "@syncfusion/ej2-react-charts": "^20.4.48",
+    "@syncfusion/ej2-react-layouts": "^20.4.48",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
